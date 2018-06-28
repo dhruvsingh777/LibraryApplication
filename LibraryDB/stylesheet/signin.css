@@ -1,0 +1,62 @@
+﻿.form-signin {
+    width: 100%;
+    max-width: 390px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+
+.form-middle{
+    width:100%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+    .form-signin .form-control {
+        position: relative;
+       
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+
+#Username {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#Password {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#Category {
+    height: 100%;
+}
+
+#Register {
+    margin-top: 12px;
+}
+
+
+#Edit{
+    margin: 5px;
+}
+
+#AddBook{
+    margin-top:5px;
+}
+
+#GrdBook {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    width: 100%;
+}
+
+

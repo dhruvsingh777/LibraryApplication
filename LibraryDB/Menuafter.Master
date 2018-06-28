@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Menuafter.master.cs" Inherits="LibraryDB.Menuafter" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Library Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../stylesheet/signin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/ionicons@4.2.1/dist/ionicons.js"></script>
+</head>
+<body class="bg-light text-center">
+    <form id="form2" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand" href="/Homeuser.aspx" style="color: ghostwhite">Library</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Loginpage.acpx"></a>
+                    </li>
+                    <li class="nav-item">
+                        <% LibraryDB.User currentUser = Session["CurrentUser"] as LibraryDB.User;  %>
+                        <% if (currentUser.UserRole == "Admin")
+                            { %>
+
+                        <a class="btn btn-link my-2 my-sm-0" href="/BookDB.aspx">All Books</a>
+                        <a class="btn btn-link my-2 my-sm-0" href="/IssuedBookDB.aspx">View Student Records</a>
+                        <% }
+                            else
+                            { %>
+                        <a class="btn link my-2 my-sm-0" href="/SearchBook.aspx">Search Book</a>
+                        <a class="btn link my-2 my-sm-0" href="/StudentBookInfo.aspx">My books</a>
+                        <%} %>
+                        <a class="btn link my-2 my-sm-0" href="/About.aspx">About</a>
+                        <a class="btn link my-2 my-sm-0" href="/Contact.aspx">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <asp:Label ID="SignedInUser" Style="color: aqua; padding-right: 10px;" runat="server"> </asp:Label>
+                    <i style="font-size: 28px; padding-right: 10px; color: aqua;" class="fa">&#xf1ae;</i>
+
+
+                    <asp:Button ID="LogOut" runat="server" ValidationGroup="PersonalInfoGroup1" class="btn btn-outline-light" Text="LogOut" OnClick="LogOut_Click" />
+                </div>
+
+            </div>
+
+        </nav>
+
+
+
+        <asp:ContentPlaceHolder ID="MainPageContentHolder" runat="server"></asp:ContentPlaceHolder>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/stylesheet/signin.css" />
+    </form>
+
+    <footer class="footer" style="bottom: 0; position: absolute;">
+        <div class="container">
+            <p>@ Library Ltd <%= DateTime.Now.ToString("MM/dd/yyyy") %></p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
